@@ -1,0 +1,23 @@
+{
+  "name": "Newsmodo",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/npm.git"
+  },
+  "description": "A freelancer platform for article writers",
+  "main": "gulpfile.js",
+  "scripts": {
+    "watch": "gulp"
+  },
+  "author": "Grant Brits",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0"
+  },
+  "dependencies": {}
+}

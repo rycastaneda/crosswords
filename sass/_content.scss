@@ -1,0 +1,159 @@
+body {
+    color: #fff;
+}
+
+// .wrapper-white-bg {
+//     background: url(#{'"{{ \'mobilebg1.png\' | asset_url }}"'});
+//     background-repeat: no-repeat;
+//     background-size: contain;
+
+//     @media (min-width: 992px) {
+//         background-position-x: 50%;
+//         background-position-y: -20%;
+//         background-size: auto;
+//     }
+
+//     .content {
+//         background-color: #f8fafa;
+//         color: #444444;
+//         padding-bottom: 15px;
+//         @include barlow-regular;
+
+//         @media (min-width: 991px) {
+//             max-width: 780px
+//         }
+
+//         .wrapper {
+//             width: 80%;
+//             margin: 10px auto;
+
+//             @media (max-width: 578px) {
+//                 width: 90%;
+//             }
+//         }
+//     }
+// }
+// .container {
+//     @media (max-width: 580px) {
+//         width: 90%;
+//     }
+// }
+// .wrapper-dark-bg {
+//     background: url(#{'"{{ \'bg2.png\' | asset_url }}"'});
+//     background-position-x: 50%;
+//     background-position-y: 7%;
+//     background-repeat: no-repeat;
+//     @media (max-width: 992px) {
+//         background: url(#{'"{{ \'darkhorse_02.png\' | asset_url }}"'});
+//         background-position-x: 0%;
+//         background-repeat: no-repeat;
+//         background-position-y: 21%;
+//     }
+//     @media (min-width: 992px) and (max-width: 1280px) {
+//         background-position-y: 0%;
+//         background-size: 185% auto;
+//     }
+// }
+
+// button:focus {
+//     outline:none;
+// }
+
+// .lp-wrapper {
+//     background: url(//cdn.shopify.com/s/files/1/0010/7003/9103/t/2/assets/lp.png?2838528868084081817);
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position-y: 47%;
+//     -webkit-transition: padding-left 500ms linear;
+//     transition: padding-left 500ms linear;
+//     @media (min-width: 991px) {
+//         background-size: auto;
+//         background-position-y: 50%;
+//         background-position-x: 50%;
+//     }
+// }
+
+// .banner {
+//     padding-top: 120px;
+//     margin: 0 auto;
+//     height: 100%;
+
+//     width: 330px;
+
+//     @media (max-width: 320px) {
+//         width: 300px;
+//     }
+
+//     @media (min-width: $screen-lg) {
+//          width: 290px;
+//     }
+
+//     // @media (min-width: 1200px) {
+//     //     width: 20%;
+//     // }
+
+// }
+
+// h1 {
+//     @include teko-light;
+//     font-size: 50px;
+//     padding-top: 30px;
+//     margin-bottom: 0;
+//     text-align: center;
+//     border: $accentColor;
+// }
+
+// hr {
+//     background-color: $accentColor;
+//     margin-top: 0px;
+//     margin-bottom: 25px;
+//     width: 60%;
+// }
+
+// h2 {
+//     @include teko-light;
+//     font-size: 30px;
+//     margin-bottom: 0;
+//     text-align: center;
+//     color: $accentColor;
+//     border: $primaryTextColor;
+//     text-transform: uppercase;
+// }
+
+// .description {
+//     font-color: #fff;
+//     font-size: 15px;
+//     text-align: center;
+// }
+
+// .scroll-more {
+//     width: 50px;
+//     margin: 50px auto;
+//     @media (min-width: $screen-lg) {
+//         margin: 5px auto 50px;
+//     }
+//     a {
+//         text-align: center;
+//         > img {
+//             color: #fff;
+//             cursor: pointer;
+//             background: url(#{'"{{ \'scroll.svg\' | asset_url }}"'});
+//         }
+//     }
+// }
+
+// button {
+//     @include barlow-medium;
+//     background-color: $accentColor;
+//     border: none;
+//     cursor: pointer;
+//     color: #ffffff;
+//     font-size: 20px;
+//     border-radius: 30px;
+//     padding: 8px 36px;
+//     text-transform: uppercase;
+// }
+
+// .shopify-challenge__button {
+//     @extend button
+// }

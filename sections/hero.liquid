@@ -1,0 +1,50 @@
+<div class="banner">
+  <div class="banner-overlay">
+  </div>
+  <div class="product-images">
+  {%- assign collection = collections[section.settings.collection] -%}
+  {% for product in collection.products limit:4 %}
+      <div class="wine-img" style="">
+        <img class="img-fluid" src="{{ product.images[1] | img_url: '700x1300' }}" alt="">
+      </div>
+  {% endfor %}
+  </div>
+  <div class="container">
+      <div class="logo">
+        <img class="img-fluid" src="{{ section.settings.logo | img_url: '450x450' }}" alt="">
+        <h1>{{section.settings.title}}</h1>
+      </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Hero Banner",
+    "class": "index-section index-section--flush",
+    "settings": [
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Wines"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "logo"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero with Logo",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

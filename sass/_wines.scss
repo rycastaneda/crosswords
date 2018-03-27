@@ -1,0 +1,94 @@
+// .wines {
+//     color: #ffffff;
+//     max-width: 780px;
+//     margin: 0 auto;
+//     margin-top: 100px;
+//     @media (max-width: 580px) {
+//         margin-top: 70px;
+//     }
+//     h1 {
+//         padding-top: 0px;
+//         color: #ffffff;
+//         border-bottom: 1px solid $accentColor;
+//         width: 70%;
+//         margin: 10px auto;
+//         font-size: 64px;
+//         @media (max-width: 580px) {
+//             padding-bottom: 0px;
+//             width: 100%;
+//             line-height: 70px;
+//         }
+//         @media(min-width: $screen-lg) {
+//             font-size: 50px;
+//             line-height: 70px;
+//         }
+//     }
+// }
+
+// .wine {
+//     text-align: center;
+//     margin-top: 35px;
+//     padding-left: 30px;
+//     padding-right: 30px;
+//     h2 {
+//         border-bottom: 1px solid #6f6f6f;
+//         line-height: 40px;
+//         width: 75%;
+//         margin: 15px auto;
+//         font-size: 50px;
+//         @media (max-width: 580px) {
+//             // width: 100%;
+//         }
+//     }
+//     .content-rte {
+//        height: 250px;
+//        overflow-y: hidden;
+//        @media(max-width: 991px) {
+//           height: auto;
+//        }
+//     }
+//     .rating {
+//         @include barlow-regular;
+//         color: #ffffff;
+//         font-size: 18px;
+//         margin-bottom: 15px;
+//         font-weight: bold;
+//     }
+//     .price {
+//         @include teko-light;
+//         color: $accentColor;
+//         font-size: 97.5px;
+//         line-height: 41px;
+//         text-align: center;
+//         margin-top: 25px;
+//         margin-bottom: 0px;
+
+//         @media (min-width: $screen-lg) {
+//             font-size: 50px;
+//         }
+
+//         .unit {
+//             font-size: 70.2px;
+//             top: -0.2em;
+
+//             @media (min-width: $screen-lg) {
+//                 font-size: 36px;
+//             }
+//         }
+//         .decimals {
+//             top: -0.3em;
+//             font-size: 58.5px;
+//             padding-bottom: 10px;
+
+//             @media (min-width: $screen-lg) {
+//                 font-size: 30px;
+//             }
+//         }
+//     }
+
+//     .add-to-cart {
+//         padding: 10px 50px;
+//         margin-bottom: 10px;
+//         @include barlow-medium;
+//     }
+// }
