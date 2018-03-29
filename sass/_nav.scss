@@ -1,4 +1,68 @@
+header {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+}
 
+.navbar {
+    background: rgba(255,255,255, 0.9);
+    margin-top: 20px;
+    padding: 15px;
+    color: #000000;
+    font-family: $mainfont;
+
+    .navbar-nav {
+        width: 100%;
+
+        .nav-item {
+            a {
+                padding: 0px;
+                margin-top: 20px;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+            }
+            &:nth-child(3) {
+                text-align: center;
+                font-family: $logofont;
+                font-weight: 500;
+                font-size: 41px;
+                a {
+                    margin-top: 0px;
+                    letter-spacing: 5px;
+                }
+            }
+        }
+    }
+
+    .cart {
+        background: #fff;
+        border-radius: 32px;
+        text-align: center;
+        padding: 8px 5px;
+
+        img {
+            width: 15px;
+            margin-left: 8px;
+        }
+    }
+
+    .count {
+        background-color: #000;
+        color: #fff;
+        border-radius: 11px;
+        padding: 2px 3px 2px 6px;
+        text-align: center;
+        font-size: 11px;
+        font-weight: 500;
+        position: relative;
+        top: -10px;
+        left: -13px;
+    }
+}
+
+a {
+    color: #000000;
+}
 // section[role="navigation"], .navbar-collapse {
 //     -webkit-transition: left 500ms linear, color 500ms linear, background-color 500ms linear, fill 500ms linear, 500ms opacity linear;
 //     transition: left 500ms linear, color 500ms linear, background-color 500ms linear, fill 500ms linear, 500ms opacity linear;

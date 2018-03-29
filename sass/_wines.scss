@@ -1,94 +1,111 @@
-// .wines {
-//     color: #ffffff;
-//     max-width: 780px;
-//     margin: 0 auto;
-//     margin-top: 100px;
-//     @media (max-width: 580px) {
-//         margin-top: 70px;
-//     }
-//     h1 {
-//         padding-top: 0px;
-//         color: #ffffff;
-//         border-bottom: 1px solid $accentColor;
-//         width: 70%;
-//         margin: 10px auto;
-//         font-size: 64px;
-//         @media (max-width: 580px) {
-//             padding-bottom: 0px;
-//             width: 100%;
-//             line-height: 70px;
-//         }
-//         @media(min-width: $screen-lg) {
-//             font-size: 50px;
-//             line-height: 70px;
-//         }
-//     }
-// }
+.wine-container {
+    .wine {
+        > div {
+            z-index: 10;
+        }
+    }
 
-// .wine {
-//     text-align: center;
-//     margin-top: 35px;
-//     padding-left: 30px;
-//     padding-right: 30px;
-//     h2 {
-//         border-bottom: 1px solid #6f6f6f;
-//         line-height: 40px;
-//         width: 75%;
-//         margin: 15px auto;
-//         font-size: 50px;
-//         @media (max-width: 580px) {
-//             // width: 100%;
-//         }
-//     }
-//     .content-rte {
-//        height: 250px;
-//        overflow-y: hidden;
-//        @media(max-width: 991px) {
-//           height: auto;
-//        }
-//     }
-//     .rating {
-//         @include barlow-regular;
-//         color: #ffffff;
-//         font-size: 18px;
-//         margin-bottom: 15px;
-//         font-weight: bold;
-//     }
-//     .price {
-//         @include teko-light;
-//         color: $accentColor;
-//         font-size: 97.5px;
-//         line-height: 41px;
-//         text-align: center;
-//         margin-top: 25px;
-//         margin-bottom: 0px;
+    .indicators {
+        position: absolute;
+        top: 35px;
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+        margin: 0 auto;
+        li {
+            display: inline;
+            margin: 0 5px;
+            font-size: 10px;
+            .active {
+                color: #000;
+            }
+        }
+    }
+    .controls {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        right: 0;
 
-//         @media (min-width: $screen-lg) {
-//             font-size: 50px;
-//         }
+        .next, .prev {
+            position: absolute;
+            top: 130px;
+            font-size: 40px;
+            opacity: 0.5;
+        }
+        .next {
+            right: 23.5%;
+        }
+        .prev {
+            left: 23.5%;
+        }
+    }
 
-//         .unit {
-//             font-size: 70.2px;
-//             top: -0.2em;
+    .wine-metadata {
+        padding: 25px 125px;
+        padding-top: 100px;
+        h2, h1 {
+            font-family: $mainfont;
+            color: #000;
+            font-size: 70px;
+            line-height: 60px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        h1 {
+            color: #fff;
+            letter-spacing: 6.5px;
+        }
+    }
 
-//             @media (min-width: $screen-lg) {
-//                 font-size: 36px;
-//             }
-//         }
-//         .decimals {
-//             top: -0.3em;
-//             font-size: 58.5px;
-//             padding-bottom: 10px;
+    .description {
+        width: 800px;
+        margin: 0 auto;
+        height: 500px;
+        font-family: $contentfont;
+        p {
+            color: white;
+            margin-bottom: 30px;
+        }
+    }
 
-//             @media (min-width: $screen-lg) {
-//                 font-size: 30px;
-//             }
-//         }
-//     }
+    .wine-img-container {
+        margin: 0 auto;
+        width: 70%;
+    }
 
-//     .add-to-cart {
-//         padding: 10px 50px;
-//         margin-bottom: 10px;
-//         @include barlow-medium;
-//     }
-// }
+    .wine-body {
+        position: relative;
+        z-index: 15;
+    }
+
+}
+
+.price {
+    font-family: $contentfont;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 27px;
+    span {
+        font-size: 50px;
+    }
+    .decimals {
+        font-size: 30px;
+        display: inline-block;
+    }
+}
+
+
+.cart {
+    background: #fff;
+    border-radius: 32px;
+    text-align: center;
+    padding: 8px 5px;
+
+    img {
+        width: 15px;
+        margin-left: 8px;
+    }
+}

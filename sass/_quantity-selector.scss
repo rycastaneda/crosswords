@@ -1,43 +1,53 @@
-// .quantity-selector {
-//     color: #ffffff;
-//     width: 190px;
-//     margin: 0 auto;
-//     margin-bottom: 15px;
+.quantity-selector {
+    width: 500px;
+    margin: 0 auto;
+    padding-bottom: 70px;
+    .plus, .minus {
+        background: rgba(255,255,255,0.7);
+        color: #000;
+        border-radius: 5px;
+        font-size: 45px;
+        padding: 7px 14px 0px;
+        line-height: 37px;
+        vertical-align: text-top;
+        border: none;
+        cursor: pointer;
+    }
 
-//     // @media (min-width: $screen-lg) {
-//     //     width: 60%;
-//     // }
-//     // @media (max-width: $screen-lg) {
-//     //     width: 40%;
-//     // }
+    .add-to-cart {
+        color: #000;
+        font-family: "Poppins",sans-serif;
+        margin-left: 10px;
+        background: rgba(255,255,255,0.7);
+        border-radius: 5px;
+        border: none;
+        font-size: 12px;
+        padding: 16px 40px;
+    }
+    // color: #ffffff;
+    // width: 190px;
+    // margin: 0 auto;
+    // margin-bottom: 15px;
+    // .col {
+    //     padding-left: 0px;
+    //     padding-right: 0px;
+    // }
 
-//     // @media (max-width: $screen-sm) {
-//     //     width: 70%;
-//     // }
-
-//     // @media (max-width: 375px) {
-//     //     width: 75%;
-//     // }
-
-//     // @media (max-width: 320px) {
-//     //     width: auto;
-//     // }
-//     .col {
-//         padding-left: 0px;
-//         padding-right: 0px;
-//     }
-
-//     #quantity-label {
-//         font-size: 31px;
-//         color: #b7b7b7;
-//     }
-//     aside {
-//         margin-top: 5px;
-//     }
-//     i {
-//         padding: 15px 17px;
-//         border-radius: 25px;
-//         background-color: #ffffff;
-//         color: $accentColor;
-//     }
-// }
+    #quantity-label {
+        font-family: "Poppins",sans-serif;
+        font-weight: 300;
+        font-size: 40px;
+        margin: 0 20px;
+        vertical-align: text-top;
+        line-height: 50px;
+    }
+    // aside {
+    //     margin-top: 5px;
+    // }
+    // i {
+    //     padding: 15px 17px;
+    //     border-radius: 25px;
+    //     background-color: #ffffff;
+    //     color: $accentColor;
+    // }
+}

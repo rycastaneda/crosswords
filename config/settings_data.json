@@ -66,8 +66,65 @@
         "type": "hero",
         "settings": {
           "collection": "frontpage",
-          "title": "Wines",
+          "title": "WINES",
           "logo": "shopify:\/\/shop_images\/logo.png"
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "blocks": {
+          "slideshow-0": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "top",
+              "title": "Image slide",
+              "subheading": "Tell your brand's story through video and images",
+              "link": ""
+            }
+          },
+          "slideshow-1": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "top",
+              "title": "Image slide",
+              "subheading": "Tell your brand's story through video and images",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "slideshow-0",
+          "slideshow-1"
+        ],
+        "settings": {
+          "autoplay": true,
+          "autoplay_speed": "7000",
+          "slideshow_height": "small",
+          "text_size": "medium"
+        }
+      },
+      "featured-collections": {
+        "type": "collection",
+        "settings": {
+          "title": "Featured collection",
+          "collection": "frontpage",
+          "grid": 3,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "feature-row": {
+        "type": "feature-row",
+        "settings": {
+          "image": "",
+          "layout": "left",
+          "title": "Image with text",
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "button_label": "",
+          "button_link": ""
         }
       },
       "footer": {
@@ -78,10 +135,26 @@
           "footer_newsletter_enable": false,
           "show_payment_icons": false
         }
+      },
+      "header-custom": {
+        "type": "header-custom",
+        "settings": {
+          "main_linklist": "main-menu"
+        }
+      },
+      "1522209986806": {
+        "type": "collection-custom",
+        "settings": {
+          "collection": "frontpage"
+        }
       }
     },
     "content_for_index": [
-      "hero"
+      "hero",
+      "1522209986806",
+      "featured-collections",
+      "feature-row",
+      "slideshow"
     ]
   },
   "presets": {
@@ -283,9 +356,6 @@
         "collection-template": {
           "type": "collection-template",
           "settings": {
-            "layout": "grid",
-            "grid": "2",
-            "rows": "2",
             "show_collection_image": true,
             "show_vendor": false,
             "sort_enable": true,

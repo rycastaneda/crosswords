@@ -32,7 +32,11 @@
 
   {% include 'social-meta-tags' %}
   {{ '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' | stylesheet_tag }}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/solid.css" integrity="sha384-29Ax2Ao1SMo9Pz5CxU1KMYy+aRLHmOu6hJKgWiViCYpz3f9egAJNwjnKGgr+BXDN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/regular.css" integrity="sha384-seionXF7gEANg+LFxIOw3+igh1ZAWgHpNR8SvE64G/Zgmjd918dTL55e8hOy7P4T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css" integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J" crossorigin="anonymous">
 
+  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
   {{ 'theme2.scss.css' | asset_url | stylesheet_tag }}
   {% include 'google-fonts' %}
 
@@ -69,7 +73,7 @@
   <!--[if lte IE 9]><script src="{{ 'vendor.js' | asset_url }}"></script><![endif]-->
 
   <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
-  <!--[if (gt IE 9)|!(IE)]><!--><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" defer="defer"></script><!--<![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" defer="defer"></script><!--<![endif]-->
   <!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
 
   {{ content_for_header }}
@@ -79,8 +83,10 @@
 
 
   <div class="page-container" id="PageContainer">
+    {% section 'header-custom' %}
 
     <main class="main-content" id="MainContent" role="main">
+      <div class="white-overlay"></div>
       {{ content_for_layout }}
     </main>
 

@@ -1,0 +1,14 @@
+<div class="col">
+  <div class="wine-preview">
+    <img src="{{product.featured_image | img_url: '130x375'}}" alt="">
+    <h4 class="source">{{current_product.metafields.theme.src}}</h4>
+    <h4 style="color: #{{current_product.metafields.theme.color}}">{{current_product.title }}</h4>
+
+    <div class="tag">
+      <p class="price" style="background-color: #{{current_product.metafields.theme.color}}">${{current_product.price}}</p>
+      <p class="cart">
+        <img src="{{ 'cart.svg' | asset_url }}" />
+      </p>
+    </div>
+  </div>
+</div>

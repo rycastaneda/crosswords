@@ -391,6 +391,49 @@ theme.Images = (function() {
   };
 })();
 
+theme.quantityButtons = function() {
+  if ($('input#Quantity').length > 0) {
+    var updateQuantity = function() {
+      var $qty = $(this).siblings('#Quantity'),
+      $qtyLabel = $(this).parent().find('#quantity-label'),
+        currentVal = parseFloat($qty.val()),
+        max = parseFloat($qty.attr('max')),
+        min = parseFloat($qty.attr('min')),
+        step = $qty.attr('step');
+      if (!currentVal || currentVal === '' || currentVal === 'NaN')
+        currentVal = 1;
+      if (max === '' || max === 'NaN') max = '';
+      if (min === '' || min === 'NaN') min = 0;
+      if (
+        step === 'any' ||
+        step === '' ||
+        step === undefined ||
+        parseFloat(step) === 'NaN'
+      )
+        step = 1;
+
+      if ($(this).is('.plus')) {
+        if (max && (max === currentVal || currentVal > max)) {
+          $qty.val(max);
+        } else {
+          $qty.val(currentVal + parseFloat(step));
+        }
+      } else {
+        if (min && (min === currentVal || currentVal < min)) {
+          $qty.val(min);
+        } else if (currentVal > 0) {
+          $qty.val(currentVal - parseFloat(step));
+        }
+      }
+      $qtyLabel.html($qty.val());
+      $qty.trigger('change');
+    }
+
+    // $(document).on('click', '.plus, .minus', updateQuantity);
+    $('.plus, .minus').click(updateQuantity);
+  }
+};
+
 /**
  * Currency Helpers
  * -----------------------------------------------------------------------------
@@ -862,9 +905,8 @@ theme.Header = (function() {
         // force stop the click from happening
         evt.preventDefault();
         evt.stopImmediatePropagation();
+        showDropdown($el);
       }
-
-      showDropdown($el);
     });
 
     // check when we're leaving a dropdown and close the active dropdown
@@ -2933,9 +2975,30 @@ $(document).ready(function() {
   sections.register('map', theme.Maps);
   sections.register('slideshow-section', theme.SlideshowSection);
   sections.register('quotes', theme.Quotes);
+  var bg = $('.wine.active').data('current-bg');
+
+  $('main').css('background-color', bg);
+  $('#carouselExampleControls').on('slide.bs.carousel', function (e) {
+    console.log("e", e, this);
+    console.log($('[data-slide-to="' + e.to + '"]'));
+    $('[data-slide-to="' + e.to + '"]')
+      .find('i')
+      .addClass('active');
+    $('[data-slide-to="' + e.from + '"]')
+      .find('i')
+      .removeClass('active');
+    bg = $('[data-slide-to="' + e.to + '"]').data('current-bg');
+    console.log("bg", bg);
+    // $('main').css('transform-origin', +e.to < e.from ? 'right' : 'left');
+    $('main').css('background-color', bg);
+  });
+
+
 });
 
 theme.init = function() {
+  theme.quantityButtons();
+
   theme.customerTemplates.init();
 
   // Theme-specific selectors to make tables scrollable

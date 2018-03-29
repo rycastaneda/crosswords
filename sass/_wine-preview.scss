@@ -1,0 +1,55 @@
+#wine-selection {
+    padding-bottom: 100px;
+    margin-top: 70px;
+    .wine-preview {
+        background: #fff;
+        border-radius: 3px;
+        padding-bottom: 30px;
+    }
+    img {
+        position: absolute;
+        top: -85px;
+        left: 85px;
+    }
+
+    h4 {
+        margin-bottom: 0px;
+        margin-left: 30px;
+        font-size: 15px;
+        font-family: $mainfont;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .source {
+        color: #000;
+        padding-top: 320px;
+    }
+}
+
+.tag {
+    position:absolute;
+    top: 350px;
+    bottom: 0;
+    right: 0;
+    .price {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        color: #fff;
+        font-family: $contentfont;
+        font-weight: bolder;
+        padding-right: 50px;
+        border-radius: 25px;
+    }
+    .cart {
+        background: #fff;
+        border-radius: 32px;
+        text-align: center;
+        padding: 8px 5px;
+
+        img {
+            width: 15px;
+            margin-left: 8px;
+        }
+    }
+}
