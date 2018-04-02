@@ -1,13 +1,14 @@
-$lgLeftAllowance: 8%;
+$lgLeftAllowance: 7.5%;
 $lgWineWidth: 345px;
-
+$bannerHeight: 800px;
 .banner {
-    height: 800px;
+    height: $bannerHeight;
 
     &-overlay {
         background: url(#{'"{{ \'overlay.png\' | asset_url }}"'});
         position: absolute;
-        height: 800px;
+        background-size: cover;
+        height: $bannerHeight;
         width: 100%;
     }
     .shadow-overlay {
@@ -15,15 +16,15 @@ $lgWineWidth: 345px;
         position: absolute;
         z-index: 5;
         width: 100%;
-        height: 800px;
+        height: $bannerHeight;
     }
     .wine-img {
         position: absolute;
-        top: -460px;
+        top: -465px;
         left: 0;
 
         @media (min-width: 991px) {
-            top: -460px;
+            top: -465px;
         }
 
         &:nth-child(1) {

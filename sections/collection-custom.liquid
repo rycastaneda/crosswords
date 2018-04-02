@@ -5,7 +5,7 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <ol class="indicators">
-          {% for product in collection.products limit: 2%}
+          {% for product in collection.products limit: 4%}
             <li data-current-bg="#{{product.metafields.theme.color}}" data-target="#carouselExampleIndicators" data-slide-to="{{count}}">
               <i class="fas fa-circle {% if count == 0 %} active {% endif %}"></i>
             </li>
@@ -24,7 +24,7 @@
         </div>
 
         {% assign count = 0 %}
-        {% for product in collection.products limit: 2%}
+        {% for product in collection.products limit: 4%}
         <div id="wine{{count}}" data-current-bg="#{{product.metafields.theme.color}}" class="wine carousel-item {% if count == 0 %} active {% endif %}">
           {% include 'slide', current_product: product %}
         </div>
