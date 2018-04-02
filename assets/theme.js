@@ -2979,8 +2979,6 @@ $(document).ready(function() {
 
   $('main').css('background-color', bg);
   $('#carouselExampleControls').on('slide.bs.carousel', function (e) {
-    console.log("e", e, this);
-    console.log($('[data-slide-to="' + e.to + '"]'));
     $('[data-slide-to="' + e.to + '"]')
       .find('i')
       .addClass('active');
@@ -2988,8 +2986,6 @@ $(document).ready(function() {
       .find('i')
       .removeClass('active');
     bg = $('[data-slide-to="' + e.to + '"]').data('current-bg');
-    console.log("bg", bg);
-    // $('main').css('transform-origin', +e.to < e.from ? 'right' : 'left');
     $('main').css('background-color', bg);
   });
 
@@ -3000,7 +2996,9 @@ theme.init = function() {
   theme.quantityButtons();
 
   theme.customerTemplates.init();
-
+  if(window.location.pathname === '/') {
+    $('#contact-us').append($('#shopify-section-footer'))
+  }
   // Theme-specific selectors to make tables scrollable
   var tableSelectors = '.rte table,' + '.custom__item-inner--html table';
 

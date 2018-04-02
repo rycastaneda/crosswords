@@ -86,7 +86,9 @@
     {% section 'header-custom' %}
 
     <main class="main-content" id="MainContent" role="main">
-      <div class="white-overlay"></div>
+      {% if page_title == 'Home' %}
+        <div class="white-overlay"></div>
+      {% endif %}
       {{ content_for_layout }}
     </main>
 

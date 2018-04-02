@@ -1,4 +1,34 @@
-// #contact-us {
+#contact-us {
+    background: url(#{'"{{ \'overlay.png\' | asset_url }}"'});
+    font-family: $mainfont;
+    h2.heading {
+        padding-top: 40px;
+        font-size: 30px;
+        font-weight: bolder;
+        letter-spacing: 0;
+    }
+    .form-success {
+        padding: 5px 10px;
+        color: #fff;
+    }
+    form {
+        .fields {
+            margin-top: 10px;
+            input, textarea {
+                border-radius: 0px;
+                padding-left: 30px;
+            }
+        }
+        .submit {
+            color: #fff;
+            background: #000;
+            border: none;
+            font-weight: bold;
+            letter-spacing: 0;
+            font-size: 12px;
+            padding: 20px;
+        }
+    }
 //     color: #ffffff;
 //     max-width: 780px;
 //     margin: 0 auto;
@@ -50,6 +80,6 @@
 //             width: 60%;
 //         }
 //     }
-// }
+}
 
 

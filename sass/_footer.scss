@@ -1,8 +1,16 @@
-// footer.site-footer {
-//     background: none;
-//     h2 {
-//         border-top: 1px solid $accentColor;
-//         padding-top: 10px;
-//         color: $primaryTextColor;
-//     }
-// }
+.site-footer {
+    margin: 0px;
+    hr {
+        margin: 0px;
+        margin-top: 50px;
+        margin-bottom: 35px;
+        border-bottom: 3px solid #6f7175;
+    }
+    h2 {
+        font-family: $logofont;
+        font-weight: 400;
+        font-size: 25px;
+        margin-bottom: 0px;
+        padding-bottom: 45px;
+    }
+}

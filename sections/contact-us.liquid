@@ -1,0 +1,47 @@
+<section id="contact-us" class="text-center" data-section-id="{{ section.id }}" data-section-type="contact-us">
+  <div class="container">
+    {% form 'contact' %}
+      <h2 class="heading">CONTACT US</h2>
+      {% if form.posted_successfully? %}
+        <p class="form-success">
+          {{ 'contact.form.post_success' | t }}
+        </p>
+      {% endif %}
+      <div class="row justify-content-center">
+        <div class="fields col-sm-8 col-offset-4">
+          <input required class="form-control" type="text" id="name" name="contact[customer-name]" placeholder="Name">
+        </div>
+        <div class="fields col-sm-8 col-offset-4">
+          <input required class="form-control" type="email" id="email" name="contact[email]" placeholder="Email">
+        </div>
+        <div class="fields col-sm-8 col-offset-4">
+          <input required class="form-control" type="text" id="phone" name="contact[phone]" placeholder="Phone">
+        </div>
+        <div class="fields col-sm-8 col-offset-4">
+          <input required class="form-control" type="text" id="phone" name="contact[subject]" placeholder="Subject">
+        </div>
+        <div class="fields col-md-8 col-offset-4">
+          <textarea class="form-control" required placeholder="Message" name="contact[body]" id="message" cols="30" rows="5"></textarea>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="fields col-md-2">
+            <button class="form-control submit">SUBMIT</button>
+        </div>
+      </div>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Contact Us",
+        "settings": [],
+        "presets": [
+            {
+            "name": "Contact Us",
+            "category": "Custom"
+         }
+        ]
+    }
+{% endschema %}
