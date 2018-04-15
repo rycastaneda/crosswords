@@ -1,14 +1,21 @@
 <div class="wine-body">
-  <div class="container wine-metadata">
-    <h2>{{ current_product.metafields.theme.src }}</h2>
-    <h1>{{ current_product.title }}</h1>
+  <div class="container wine-metadata" {% if page_title != 'Crosswords' %}style="padding-top: 20px;"{% endif %}>
+    <div class="row title justify-content-center">
+      <div class="col-xs-8 offset-xs-4">
+        <h2>{{ current_product.metafields.theme.src }}</h2>
+        <h1>{{ current_product.title }}</h1>
+      </div>
+    </div>
   </div>
   <div class="row justify-content-center">
-      <img class="img-fluid" src="{{ current_product.images[2] | img_url: 'master' }}" alt="{{ current_product.title }}">
+    <div class="wine-cover" style="background-image: url('{{ current_product.images[2] | img_url: 'master' }}')">
+
+      <img style="visibility: hidden;" class="img-fluid" src="{{ current_product.images[2] | img_url: 'master' }}" alt="{{ current_product.title }}">
+    </div>
   </div>
-  <div class="container ">
-    <div class="description">{{product.description}}</div>
-    <div class="price">
+  <div class="container">
+    <div class="col-sm-12 offset-sm-2 description">{{product.description}}</div>
+    <div class="col-sm-12 price">
         <span>${{ product.price | divided_by: 100 }}</span>
         {%- assign decimal = product.price | modulo: 100 -%}
         <sup class="decimals">
@@ -19,10 +26,11 @@
           {% endif %}
         </sup>
         /bottle
-
-        <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-          <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-          <div id="quantity-selector-{{ section.id }}" class="row justify-content-center quantity-selector">
+    </div>
+    <div class="col-sm-12 price">
+      <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+        <div id="quantity-selector-{{ section.id }}" class="row justify-content-center quantity-selector">
             <span class="minus">-</span>
             <input type="hidden" id="Quantity" name="quantity" step="1" value="{{ product.quantity }}" min="1">
             <span class="" id="quantity-label">
@@ -30,8 +38,8 @@
             </span>
             <span class="plus">+</span>
             <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="add-to-cart">ADD TO CART</button>
-          </div>
-        </form>
+        </div>
+      </form>
     </div>
   </div>
 </div>

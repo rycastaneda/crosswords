@@ -34,3 +34,19 @@
 //         }
 //     }
 // }
+#shopify-section-cart-template {
+    height: 100vh;
+}
+form.cart {
+    a {
+        color: #fff;
+    }
+
+    .btn {
+        color: #000;
+    }
+}
+
+.cart__continue--large {
+    line-height: unset;
+}

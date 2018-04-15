@@ -33,18 +33,62 @@
             top: 130px;
             font-size: 40px;
             opacity: 0.5;
+
+            @media(max-width: 375px) {
+                top: 100px;
+            }
+
+            @media(max-width: $screen-sm) {
+                top: 20px;
+            }
+
+            @media(min-width: $screen-sm) {
+                top: 110px;
+            }
+
+            @media(min-width: $screen-lg) {
+                top: 130px;
+            }
         }
         .next {
-            right: 23.5%;
+            right: 12%;
+
+            @media(max-width: 991px) {
+                right: 90px;
+            }
+
+            @media(max-width: $screen-sm) {
+                right: 40px;
+            }
         }
         .prev {
-            left: 23.5%;
+            left: 12%;
+
+            @media(max-width: 991px) {
+                left: 80px;
+            }
+
+            @media(max-width: $screen-sm) {
+                left: 40px;
+            }
+
         }
     }
 
     .wine-metadata {
-        padding: 25px 125px;
         padding-top: 100px;
+
+        @media (min-width: $screen-xl) {
+            padding-left: 40px;
+            padding-right: 75px;
+        }
+
+        .title {
+            @media (min-width: $screen-xxl) {
+                justify-content: start !important;
+            }
+        }
+
         h2, h1 {
             font-family: $mainfont;
             color: #000;
@@ -52,22 +96,54 @@
             line-height: 60px;
             margin: 0;
             text-transform: uppercase;
+
+            @media (max-width: $screen-lg) {
+                line-height: 40px;
+                font-size: 30px;
+            }
+
+            @media (min-width: $screen-lg) {
+                font-size: 50px;
+            }
+
+            @media (min-width: $screen-xl) {
+                font-size: 70px;
+                line-height: 60px;
+            }
+
+            @media (max-width: 375px) {
+                line-height: 30px;
+                font-size: 28px;
+                letter-spacing: 0px;
+            }
         }
         h1 {
             color: #fff;
             letter-spacing: 6.5px;
+
+            @media (max-width: 375px) {
+                line-height: 30px;
+                font-size: 28px;
+                letter-spacing: 0px;
+            }
         }
     }
 
     .description {
-        width: 800px;
         margin: 0 auto;
-        height: 500px;
         font-family: $contentfont;
         p {
             color: white;
             margin-bottom: 30px;
+            font-size: 15px;
         }
+    }
+
+    .wine-cover {
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left: 25px;
+        margin-right: 10px;
     }
 
     .wine-img-container {

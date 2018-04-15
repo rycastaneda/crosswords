@@ -1,5 +1,6 @@
 #contact-us {
     background: url(#{'"{{ \'overlay.png\' | asset_url }}"'});
+    background-size: cover;
     font-family: $mainfont;
     h2.heading {
         padding-top: 40px;
@@ -9,7 +10,7 @@
     }
     .form-success {
         padding: 5px 10px;
-        color: #fff;
+        color: #56ad6a;
     }
     form {
         .fields {
@@ -27,6 +28,15 @@
             letter-spacing: 0;
             font-size: 12px;
             padding: 20px;
+        }
+        .error-label {
+            color: rgba(245,19,3,1);
+            display: block;
+        }
+        .error {
+            -webkit-box-shadow: 0px 0px 10px 3px rgba(245,19,3,1);
+            -moz-box-shadow: 0px 0px 10px 3px rgba(245,19,3,1);
+            box-shadow: 0px 0px 10px 3px rgba(245,19,3,1);
         }
     }
 //     color: #ffffff;

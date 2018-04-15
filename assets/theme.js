@@ -2975,10 +2975,32 @@ $(document).ready(function() {
   sections.register('map', theme.Maps);
   sections.register('slideshow-section', theme.SlideshowSection);
   sections.register('quotes', theme.Quotes);
-  var bg = $('.wine.active').data('current-bg');
 
+  $.fn.isInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    if($(this).data('offset-bottom')) {
+      elementBottom -= $(this).data('offset-bottom');
+    }
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+  };
+
+  var bg = $('.wine.active').data('current-bg');
+  var setOverlayHeight = function () {
+    var overlay = $('#shopify-section-1522209986806').height() + $('#shopify-section-1522993835256').height() + 70;
+    $('.white-overlay').css('height', overlay);
+  }
   $('main').css('background-color', bg);
-  $('#carouselExampleControls').on('slide.bs.carousel', function (e) {
+  $('#shopify-section-product-template').css('background-color', bg);
+
+  setTimeout(setOverlayHeight, 500)
+  $('#wines').on('slid.bs.carousel', function (e) {
+    setOverlayHeight()
+  });
+
+  $('#wines').on('slide.bs.carousel', function (e) {
     $('[data-slide-to="' + e.to + '"]')
       .find('i')
       .addClass('active');
@@ -2987,8 +3009,115 @@ $(document).ready(function() {
       .removeClass('active');
     bg = $('[data-slide-to="' + e.to + '"]').data('current-bg');
     $('main').css('background-color', bg);
+    setOverlayHeight()
   });
 
+  $( window ).resize(setOverlayHeight);
+  var hostname = 'https://crosswords-au.myshopify.com/';
+
+  var activeLink = $('.nav-link[href="/"]');
+  var setActiveNav = function () {
+    activeLink.removeClass('accent')
+    $('.nav-link:not(:last)').each(function () {
+      var id = $(this).attr('href').replace(hostname, '');
+      var section;
+      var link = $(this);
+      if(id === '') {
+        return;
+      }
+      if (id[0] === '/' ) {
+        section = $('#shopify-section-hero');
+      } else {
+        section = $(id);
+      }
+      if(section.length && section.isInViewport()) {
+        link.addClass('accent');
+        activeLink = link;
+        document.title = 'Crosswords - ' + link.html();
+        return false;
+      }
+    });
+  }
+
+  if(document.getElementById("wines")) {
+    $(window).on('scroll', _.debounce(setActiveNav, 30));
+    setActiveNav();
+  }
+
+  $('.nav-link').click(function(e) {
+    if(!!~['/cart', '/'].indexOf($(this).attr('href')) ||
+      window.location.pathname === '/cart' ||
+      !!~window.location.pathname.indexOf('/products') ||
+      !!~window.location.pathname.indexOf('/challenge')) {
+      return;
+    }
+    e.preventDefault();
+
+    $('html, body').animate({
+       scrollTop: $($(this).attr('href').replace(hostname, '')).offset().top
+    }, 1000);
+
+  });
+
+  function validateEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
+  }
+
+  var formErrors = [];
+  $('#contact_form').on('submit', function (e, options) {
+    options = options || {};
+    console.log("options", options);
+    if ( !options.lots_of_stuff_done ) {
+      e.preventDefault();
+      formErrors.forEach(function(element) {
+        $(element).removeClass('error');
+        $(element).parent().find('.error-label').remove();
+      });
+      formErrors = [];
+      $('.required').each(function() {
+        if(!$(this).val()) {
+          $(this).addClass('error');
+          formErrors.push($(this));
+          $(this).parent().append('<label class="error-label">This field is required.</label>')
+        }
+      });
+
+      if (!validateEmail($('#email').val())) {
+        $('#email').addClass('error');
+        formErrors.push($('#email'));
+        $('#email').parent().append('<label class="error-label">This field requires valid email address.</label>')
+      }
+
+      if(+$('#phone').val() <= 0) {
+        $('#phone').addClass('error');
+        formErrors.push($('#phone'));
+        $('#phone').parent().append('<label class="error-label">This field requires phone number.</label>')
+      }
+      console.log("formErrors", formErrors);
+      formErrors.length || $(e.currentTarget).trigger('submit', { 'lots_of_stuff_done': true });
+    }
+  });
+
+  if(!document.getElementById("wines")) {
+    return;
+  }
+
+  var section;
+
+  if($('.form-success').length) {
+    section = $('#contact-us');
+  } else {
+    var id = window.location.href.replace(hostname, '');
+    section = $(id);
+  }
+
+  setTimeout(function () {
+    if(!section.length) return;
+    $('html, body').animate({
+       scrollTop: section.offset().top - 100
+    }, 1000);
+  }, 1000)
 
 });
 

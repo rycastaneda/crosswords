@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_button }}">
   <link rel="canonical" href="{{ canonical_url }}">
-
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500|Poppins:400,500" rel="stylesheet">
   {% if settings.favicon != blank %}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {% endif %}
@@ -36,7 +36,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/regular.css" integrity="sha384-seionXF7gEANg+LFxIOw3+igh1ZAWgHpNR8SvE64G/Zgmjd918dTL55e8hOy7P4T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css" integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J" crossorigin="anonymous">
 
-  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  {% if page_title != 'Crosswords' %}
+    {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  {% endif %}
   {{ 'theme2.scss.css' | asset_url | stylesheet_tag }}
   {% include 'google-fonts' %}
 
@@ -71,7 +73,7 @@
 
   <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
   <!--[if lte IE 9]><script src="{{ 'vendor.js' | asset_url }}"></script><![endif]-->
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js" defer="defer"></script>
   <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
   <!--[if (gt IE 9)|!(IE)]><!--><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" defer="defer"></script><!--<![endif]-->
   <!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
@@ -80,12 +82,10 @@
 </head>
 
 <body class="template-{{ template | split: '.' | first }}">
-
-
   <div class="page-container" id="PageContainer">
     {% section 'header-custom' %}
 
-    <main class="main-content" id="MainContent" role="main">
+    <main class="main-content" id="MainContent" role="main" {% if page_title != 'Crosswords' %}style="padding-top: 160px;"{% endif %}>
       {% if page_title == 'Crosswords' %}
         <div class="white-overlay"></div>
       {% endif %}

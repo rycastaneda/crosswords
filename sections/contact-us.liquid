@@ -8,20 +8,20 @@
         </p>
       {% endif %}
       <div class="row justify-content-center">
-        <div class="fields col-sm-8 col-offset-4">
-          <input required class="form-control" type="text" id="name" name="contact[customer-name]" placeholder="Name">
-        </div>
-        <div class="fields col-sm-8 col-offset-4">
-          <input required class="form-control" type="email" id="email" name="contact[email]" placeholder="Email">
-        </div>
-        <div class="fields col-sm-8 col-offset-4">
-          <input required class="form-control" type="text" id="phone" name="contact[phone]" placeholder="Phone">
-        </div>
-        <div class="fields col-sm-8 col-offset-4">
-          <input required class="form-control" type="text" id="phone" name="contact[subject]" placeholder="Subject">
+        <div class="fields col-md-8 col-offset-4">
+          <input class="form-control required" type="text" id="name" name="contact[customer-name]" placeholder="Name">
         </div>
         <div class="fields col-md-8 col-offset-4">
-          <textarea class="form-control" required placeholder="Message" name="contact[body]" id="message" cols="30" rows="5"></textarea>
+          <input class="form-control required" type="email" id="email" name="contact[email]" placeholder="Email">
+        </div>
+        <div class="fields col-md-8 col-offset-4">
+          <input pattern="[0-9\-]*" class="form-control required" type="tel" id="phone" name="contact[phone]" placeholder="Phone">
+        </div>
+        <div class="fields col-md-8 col-offset-4">
+          <input class="form-control required" type="text" id="phone" name="contact[subject]" placeholder="Subject">
+        </div>
+        <div class="fields col-md-8 col-offset-4">
+          <textarea class="form-control required" placeholder="Message" name="contact[body]" id="message" cols="30" rows="5"></textarea>
         </div>
       </div>
       <div class="row justify-content-center">

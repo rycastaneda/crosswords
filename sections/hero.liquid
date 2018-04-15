@@ -2,13 +2,7 @@
   <div class="banner-overlay">
   </div>
   <div class="shadow-overlay"></div>
-  <div class="product-images">
-  {%- assign collection = collections[section.settings.collection] -%}
-  {% for product in collection.products limit:4 %}
-      <div class="wine-img" style="">
-        <img class="img-fluid" src="{{ product.images[1] | img_url: '700x1300' }}" alt="">
-      </div>
-  {% endfor %}
+  <div class="product-images" style="background-image: url({{section.settings.banner | img_url: 'master'}})">
   </div>
   <div class="container">
       <div class="logo">
@@ -25,9 +19,9 @@
     "class": "index-section index-section--flush",
     "settings": [
       {
-        "id": "collection",
-        "type": "collection",
-        "label": "Collection"
+        "id": "banner",
+        "type": "image_picker",
+        "label": "banner"
       },
       {
         "type": "text",

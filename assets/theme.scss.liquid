@@ -369,7 +369,7 @@ $border-radius: 2px;
 
 /*================ Z-Index ================*/
 $z-index-dropdown : 7;
-$z-index-sub-nav: 8;
+$z-index-sub-nav: 15;
 $z-index-drawer: 9;
 $z-index-announcement-bar: 10;
 $z-index-skip-to-content: 10000; // really high to be safe of app markup
@@ -2372,7 +2372,6 @@ textarea {
   @include media-query($medium-up) {
     // Prevent mobile menu inline styles from overriding desktop styles
     // sass-lint:disable no-important
-    @include transform(translate3d(0, 0, 0));
   }
 }
 

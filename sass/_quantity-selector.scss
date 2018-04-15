@@ -1,7 +1,10 @@
 .quantity-selector {
-    width: 500px;
     margin: 0 auto;
     padding-bottom: 70px;
+    @media (max-width: $screen-xs) {
+        width: auto;
+    }
+
     .plus, .minus {
         background: rgba(255,255,255,0.7);
         color: #000;
@@ -13,16 +16,31 @@
         border: none;
         cursor: pointer;
     }
+    .minus {
+        padding-top: 5px;
+    }
 
     .add-to-cart {
         color: #000;
         font-family: "Poppins",sans-serif;
+        font-weight: bold;
         margin-left: 10px;
         background: rgba(255,255,255,0.7);
         border-radius: 5px;
         border: none;
         font-size: 12px;
         padding: 16px 40px;
+
+        @media (max-width: $screen-xs) {
+            padding: 16px 35px;
+            margin-left: 10px;
+        }
+
+        @media (max-width: $screen-min) {
+            padding: 16px 36px;
+            margin-left: 0;
+            margin-top: 5px;
+        }
     }
     // color: #ffffff;
     // width: 190px;
@@ -36,7 +54,8 @@
     #quantity-label {
         font-family: "Poppins",sans-serif;
         font-weight: 300;
-        font-size: 40px;
+        font-size: 30px;
+        width: 20px;
         margin: 0 20px;
         vertical-align: text-top;
         line-height: 50px;

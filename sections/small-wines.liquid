@@ -1,10 +1,10 @@
-<div id="wine-selection">
+<div id="small-wines">
   <div class="container">
     <div class="row justify-content-center">
       {%- assign collection = collections[section.settings.collection] -%}
       {% assign count = 0 %}
       {% for product in collection.products limit: 4%}
-        {% include 'wine', current_product: product %}
+        {% include 'wine', current_product: product, counter: 0 %}
       {% assign count = count | plus: 1 %}
       {% endfor %}
     </div>
