@@ -1,11 +1,19 @@
 .header-banner {
-    // position: absolute;
-    z-index: 10;
+    z-index: 60;
     top: 0;
-    // @media (max-width: $screen-sm) {
     position: fixed;
-    // }
-    padding-left: 0 !important;
+    @media (min-width: $screen-sm) {
+        padding-right: 45px !important;
+    }
+}
+
+.nav-logo-ie {
+    @media (min-width: $screen-md) {
+        margin: 0px 100px !important;
+    }
+    @media (max-width: $screen-sm) {
+        margin: 0px 20px !important
+    }
 }
 header.container {
     @media (max-width: $screen-sm) {
@@ -19,7 +27,7 @@ header.container {
 }
 
 .navbar {
-    background: rgba(255,255,255, 0.9);
+    background: rgba(255,255,255, 0.90);
     margin-top: 20px;
     padding: 15px;
     color: #000000;
@@ -66,12 +74,14 @@ header.container {
         font-size: 41px;
         letter-spacing: 5px;
         margin-right: 0px;
-        @media (max-width: 464px) {
+
+        @media (max-width: $screen-lg) {
             letter-spacing: 0px;
+        }
+        @media (max-width: $screen-sm) {
             font-size: 30px;
         }
-        @media (max-width: 320px) {
-            letter-spacing: 0px;
+        @media (max-width: $screen-xs) {
             font-size: 24px;
         }
     }
@@ -96,17 +106,20 @@ header.container {
     .count {
         background-color: #000;
         color: #fff;
-        border-radius: 11px;
-        padding: 2px 3px 2px 6px;
+        border-radius: 30px;
+        padding: 5px 2px 2px 5px;
         text-align: center;
         font-size: 11px;
         font-weight: 500;
         position: relative;
         top: -12px;
         left: -15px;
+        height: 25px;
+        display: inline-block;
+        width: 25px;
 
         @media (max-width: 991px) {
-            padding: 3px 3px 3px 7px;
+            padding: 5px 5px 2px 5px;
         }
     }
 }
@@ -116,8 +129,12 @@ a {
 }
 
 .accent {
-    color: #004085;
     font-weight: bold;
+    color: #000000;
+
+    &:hover {
+        color: #000;
+    }
 }
 // section[role="navigation"], .navbar-collapse {
 //     -webkit-transition: left 500ms linear, color 500ms linear, background-color 500ms linear, fill 500ms linear, 500ms opacity linear;

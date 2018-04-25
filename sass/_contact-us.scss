@@ -13,9 +13,11 @@
         color: #56ad6a;
     }
     form {
+        font-family: $contentfont;
         .fields {
             margin-top: 10px;
             input, textarea {
+                line-height: 33px;
                 border-radius: 0px;
                 padding-left: 30px;
             }
@@ -30,8 +32,11 @@
             padding: 20px;
         }
         .error-label {
-            color: rgba(245,19,3,1);
+            margin-top: 5px;
+            color: #ff857c;
             display: block;
+            font-weight: bold;
+            font-size: 12px;
         }
         .error {
             -webkit-box-shadow: 0px 0px 10px 3px rgba(245,19,3,1);

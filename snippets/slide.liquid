@@ -8,9 +8,9 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="wine-cover" style="background-image: url('{{ current_product.images[2] | img_url: 'master' }}')">
+    <div class="wine-cover" style="background-image: url('{{ current_product.images[1] | img_url: 'master' }}')">
 
-      <img style="visibility: hidden;" class="img-fluid" src="{{ current_product.images[2] | img_url: 'master' }}" alt="{{ current_product.title }}">
+      <img style="visibility: hidden;" class="img-fluid" src="{{ current_product.images[1] | img_url: 'master' }}" alt="{{ current_product.title }}">
     </div>
   </div>
   <div class="container">
@@ -31,12 +31,12 @@
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
         <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
         <div id="quantity-selector-{{ section.id }}" class="row justify-content-center quantity-selector">
-            <span class="minus">-</span>
+            <span class="minus"><img src="{{ 'minus.svg' | file_url }}" alt=""></span>
             <input type="hidden" id="Quantity" name="quantity" step="1" value="{{ product.quantity }}" min="1">
             <span class="" id="quantity-label">
               1
             </span>
-            <span class="plus">+</span>
+            <span class="plus"><img src="{{ 'plus.svg' | file_url }}" alt=""></span>
             <button type="submit" name="add" id="AddToCart-{{ section.id }}" class="add-to-cart">ADD TO CART</button>
         </div>
       </form>

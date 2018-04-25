@@ -13,7 +13,7 @@ $bannerHeight: 800px;
         width: 100%;
     }
     .shadow-overlay {
-        background: rgba(0,0,0,0.1);
+        background: rgba(0,0,0,0.2);
         position: absolute;
         top: 0px;
         z-index: 5;
@@ -46,7 +46,7 @@ $bannerHeight: 800px;
         }
 
         @media (max-width: $screen-sm) {
-            width: 330px;
+            width: 300px;
         }
 
         @media (max-width: $screen-min) {
@@ -60,7 +60,7 @@ $bannerHeight: 800px;
             font-family: $logofont;
             font-size: 51px;
             font-weight: 500;
-            text-shadow: 2px 1px 15px #000;
+            text-shadow: 0px 0px 10px #000;
 
             @media (min-width: 991px) {
                 letter-spacing: 33px;

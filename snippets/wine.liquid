@@ -1,4 +1,4 @@
-<div class="wine-col col-lg-3 col-md-6 col-xs-8 offset-xs-4">
+<div class="wine-col col-lg-3 col-md-6 col-xs-8 offset-xs-4" data-target="#wines" data-slide-to="{{count}}">
   <div class="wine-preview {% if count == 3 %}last{% endif %}">
     <div class="tag">
       {%- assign decimal = current_product.price | modulo: 100 -%}
@@ -7,10 +7,10 @@
         ${{current_product.price  | divided_by: 100 }}{% if decimal  != 0 %}.{{ decimal }}{% else %}.00{% endif %}
       </p>
       <p class="cart">
-        <img class="cart-img" src="{{ 'cart.svg' | asset_url }}" />
+        <img class="cart-img" src="{{ 'cart.svg' | asset_url }}" data-slide-to="{{count}}"/>
       </p>
     </div>
-    <img class="wine-img" src="{{product.featured_image | img_url: '130x375'}}" alt="">
+    <img class="wine-img" src="{{product.featured_image | img_url: 'master'}}" alt="">
     <h4 class="source">{{current_product.metafields.theme.src}}</h4>
     <h4 style="color: #{{current_product.metafields.theme.color}}">{{current_product.title }}</h4>
   </div>

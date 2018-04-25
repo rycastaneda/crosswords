@@ -3033,18 +3033,57 @@ $(document).ready(function() {
       if(section.length && section.isInViewport()) {
         link.addClass('accent');
         activeLink = link;
-        document.title = 'Crosswords - ' + link.html();
+        document.title = 'Crosswords - ' + link.html().toUpperCase();
         return false;
       }
     });
   }
 
   if(document.getElementById("wines")) {
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+    if(msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+      $('.nav-logo').addClass('nav-logo-ie');
+      $('.wine-cover').addClass('wine-cover-ie');
+    }
+
+    $('.form-control').on('focus', function () {
+      $('#wines').carousel('pause');
+    }).on('focusout', function () {
+      $('#wines').carousel('cycle');
+    });
+
+    $('.wine-col').click(function(){
+      $('#wines').carousel($(this).data('slide-to'));
+      $('html, body').animate({
+         scrollTop: $('#wines').offset().top
+      }, 1000);
+    });
+
+    $('.cart-img').click(function(){
+      var wine = $('#wine' + $(this).data('slide-to'));
+      console.log("wine", wine);
+      wine.find('#Quantity').val(1);
+      wine.find('form').submit();
+    });
+
     $(window).on('scroll', _.debounce(setActiveNav, 30));
     setActiveNav();
   }
 
   $('.nav-link').click(function(e) {
+    console.log("$(this)", $(this).parent());
+    if($(this).parent().hasClass('col-lg-4') && document.getElementById("wines")) {
+      e.preventDefault();
+      $('html, body').animate({
+         scrollTop: $('.banner').offset().top
+      }, 1000);
+      if($('#navbarSupportedContent').hasClass('show')) {
+        $('[data-toggle="collapse"]').click();
+        return;
+      }
+    }
+
     if(!!~['/cart', '/'].indexOf($(this).attr('href')) ||
       window.location.pathname === '/cart' ||
       !!~window.location.pathname.indexOf('/products') ||
@@ -3056,6 +3095,10 @@ $(document).ready(function() {
     $('html, body').animate({
        scrollTop: $($(this).attr('href').replace(hostname, '')).offset().top
     }, 1000);
+    if($('#navbarSupportedContent').hasClass('show')) {
+      $('[data-toggle="collapse"]').click();
+      return;
+    }
 
   });
 
@@ -3079,27 +3122,27 @@ $(document).ready(function() {
         if(!$(this).val()) {
           $(this).addClass('error');
           formErrors.push($(this));
-          $(this).parent().append('<label class="error-label">This field is required.</label>')
+          $(this).parent().append('<h6 class="error-label">This field is required.</h6>')
         }
       });
 
       if (!validateEmail($('#email').val())) {
         $('#email').addClass('error');
         formErrors.push($('#email'));
-        $('#email').parent().append('<label class="error-label">This field requires valid email address.</label>')
+        $('#email').parent().append('<h6 class="error-label">This field requires valid email address.</h6>')
       }
 
       if(+$('#phone').val() <= 0) {
         $('#phone').addClass('error');
         formErrors.push($('#phone'));
-        $('#phone').parent().append('<label class="error-label">This field requires phone number.</label>')
+        $('#phone').parent().append('<h6 class="error-label">This field requires phone number.</h6>')
       }
       console.log("formErrors", formErrors);
       formErrors.length || $(e.currentTarget).trigger('submit', { 'lots_of_stuff_done': true });
     }
   });
 
-  if(!document.getElementById("wines")) {
+  if(!document.getElementById("wines") || window.location.pathname !== '/') {
     return;
   }
 
