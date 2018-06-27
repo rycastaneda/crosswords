@@ -1,2 +1,4 @@
 node_modules/
 theme.lock
+package-lock.json
+config.yml
